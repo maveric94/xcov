@@ -17,7 +17,7 @@ module Xcov
       Xcov.config = options
 
       # Set project options
-      if !Xcov.config[:is_swift_package] && !Xcov.config[:xccov_file_direct_path].nil?
+      if !Xcov.config[:is_swift_package] && Xcov.config[:xccov_file_direct_path].nil?
         FastlaneCore::Project.detect_projects(options)
         Xcov.project = FastlaneCore::Project.new(options)
       end
